@@ -9,7 +9,7 @@ import { request } from "@arcjet/next"
 
 
 const bookingLimiter = createRateLimiter({
-  refillRate: 2,
+  refillRate: 10,
   interval: "1h",
   capacity: 5,
 })
@@ -174,7 +174,7 @@ export const bookSlot = async ({ interviewerId, startTime, endTime }) => {
     const booking = await db.$transaction(async (tx) => {
       const newBooking = await tx.booking.create({
         data: {
-          userId: dbUser.id,
+          intervieweeId: dbUser.id,
           interviewerId,
           startTime: new Date(startTime),
           endTime: new Date(endTime),
@@ -207,7 +207,7 @@ export const bookSlot = async ({ interviewerId, startTime, endTime }) => {
       await tx.user.update({
         where: { id: interviewerId },
         data: {
-          creditsBalance: { increment: credits },
+          creditBalance: { increment: credits },
         }
       });
 
