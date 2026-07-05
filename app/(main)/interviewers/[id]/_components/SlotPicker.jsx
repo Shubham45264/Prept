@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { GrayTitle } from "@/components/reusables";
 import { bookSlot } from "@/actions/booking";
-import useFetch from "@/hooks/useFetch";
+import useFetch from "@/hooks/use-fetch";
 import UpgradeModal from "@/components/UpgradeModal";
 import {
   formatDateFull,
