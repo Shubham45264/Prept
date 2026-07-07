@@ -6,7 +6,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { GrayTitle, SectionLabel } from "@/components/reusables";
 import SlotPicker from "./_components/SlotPicker";
-import { StarsBackgroundDemo } from "@/components/demo-components-backgrounds-stars";
+import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -34,7 +34,7 @@ export default async function InterviewerProfilePage({ params }) {
     <main className="min-h-screen bg-black">
       {/* ── Hero identity banner ── */}
       <section className="relative border-b border-white/8 overflow-hidden">
-        <StarsBackgroundDemo />
+        <StarsBackground className="absolute inset-0 -z-0 w-full h-full" />
 
         <div className="relative max-w-6xl mx-auto px-8 pt-20 pb-14 flex flex-col gap-8">
           <Link href="/explore">
