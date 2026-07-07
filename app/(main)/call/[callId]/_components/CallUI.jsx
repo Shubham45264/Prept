@@ -137,7 +137,7 @@ export default function CallUI({
         </div>
 
         {/* ── RIGHT: Chat / AI panel ── */}
-        <div className="w-85 shrink-0 flex flex-col border-l border-white/8 bg-[#0a0a0b]">
+        <div className="w-80 shrink-0 flex flex-col border-l border-white/8 bg-[#0a0a0b]">
           {/* Tab switcher */}
           <div className="flex border-b border-white/8 shrink-0">
             <button
@@ -152,20 +152,18 @@ export default function CallUI({
               Chat
             </button>
 
-            {/* AI Questions tab — interviewer only */}
-            {isInterviewer && (
-              <button
-                type="button"
-                onClick={() => setActiveTab("ai")}
-                className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs font-medium transition-colors ${activeTab === "ai"
-                  ? "text-amber-400 border-b-2 border-amber-400"
-                  : "text-stone-500 hover:text-stone-300"
-                  }`}
-              >
-                <Sparkles size={13} />
-                AI Questions
-              </button>
-            )}
+            {/* AI Questions tab */}
+            <button
+              type="button"
+              onClick={() => setActiveTab("ai")}
+              className={`flex-1 flex items-center justify-center gap-2 py-3 text-xs font-medium transition-colors ${activeTab === "ai"
+                ? "text-amber-400 border-b-2 border-amber-400"
+                : "text-stone-500 hover:text-stone-300"
+                }`}
+            >
+              <Sparkles size={13} />
+              AI Questions
+            </button>
           </div>
 
           {/* Panel content */}
