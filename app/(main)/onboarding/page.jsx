@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { YEARS_OPTIONS } from "@/lib/data";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import useFetch from '@/hooks/useFetch';
+import useFetch from '@/hooks/use-fetch';
 import { completeOnboarding } from '@/actions/onboarding';
 import { useRouter } from "next/navigation";
 
@@ -34,7 +34,7 @@ const onboardingPage = () => {
     if (data && !loading) {
       router.push(role === "INTERVIEWER" ? "/dashboard" : "/explore");
     }
-  }, [data,loading]);
+  }, [data, loading]);
 
   const toggleCategory = (val) => {
     setForm((prev) => ({
