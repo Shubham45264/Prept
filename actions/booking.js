@@ -56,7 +56,7 @@ export const getInterviewerProfile = async (interviewerId) => {
     return interviewer ?? null;
 
   } catch (error) {
-    console.error("getInterviewerProfile error:", err);
+    console.error("getInterviewerProfile error:", error);
     return null;
 
   }
