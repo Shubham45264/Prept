@@ -1,33 +1,39 @@
-import {useState } from 'react';
-import {toast} from "sonner";
+import { useState } from 'react';
+import { toast } from "sonner";
 
-const useFetch = (cb)=> {
-    const [data,setData] = useState(undefined);
-    const [error,setError] = useState(null);
-    const [loading,setLoading] = useState(null);
+const useFetch = (cb) => {
+  const [data, setData] = useState(undefined);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(null);
 
 
-    const fn = async(...args)=>{
-        setLoading(true);
+  const fn = async (...args) => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await cb(...args);
+      if (response && response.error) {
+        const customError = new Error(response.error);
+        setError(customError);
+        toast.error(response.error);
+      } else {
+        setData(response);
         setError(null);
-
-        try {
-          const response = await cb(...args);
-          setData(response);
-          setError(null);
-        } catch (error) {
-          setError(error);
-          toast.error(error.message);
-        } finally {
-          setLoading(false);
-        }
+      }
+    } catch (error) {
+      setError(error);
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
+  }
 
-    return {data,error,loading,fn,setData};
+  return { data, error, loading, fn, setData };
 
 
 
-    
+
 };
 
 export default useFetch;

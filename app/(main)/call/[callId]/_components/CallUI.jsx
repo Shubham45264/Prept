@@ -184,7 +184,7 @@ export default function CallUI({
                 </div>
               )
             ) : (
-              <div className="p-4 h-full overflow-y-scroll max-h-screen">
+              <div className="p-4 h-full overflow-hidden">
                 <AIQuestionsPanel categories={booking.categories} />
               </div>
             )}
